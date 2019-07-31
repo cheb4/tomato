@@ -1,3 +1,4 @@
+// TODO kazka sutvarkyti su datom
 class Pomodoro {
   constructor(_time) {
     this.time = _time;
@@ -15,17 +16,19 @@ class Pomodoro {
     this.intervalID = setInterval(function(countTo = countDownDate) {
       // jump 3   a
       // Get today's date and time
-      let now = new Date().getTime();
-
+      // let now = new Date().getTime();
+      console.log("#######################################################");
+      let now = Date.now();
+      console.log(`printing now ${now}`);
       // Find the distance between now and the count down date
 
       this.distance = countTo - now;
-      console.log("distance", distance);
+      console.log(`${distance} distance  = ${countTo} - ${now}`);
       // Time calculations for days, hours, minutes and seconds
       let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      console.log("#######################################################");
 
-      // Output the result in an element with id="clockH1"document.querySelector("#clockH1")
       document.querySelector("#clockH1").innerHTML =
         minutes + "m " + seconds + "s ";
 
@@ -42,7 +45,7 @@ class Pomodoro {
   killCountdown() {
     console.log(`killed countdown (${this.intervalID})`);
     // console.log(`killed at ${this.distance}`);
-    console.log(this.shit);
+
     clearInterval(this.intervalID);
   }
 }
