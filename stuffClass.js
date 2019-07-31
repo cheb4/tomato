@@ -9,7 +9,7 @@ class Pomodoro {
     this.time = new_time;
   }
 
-  // jump 1   
+  // jump 1   o
   countdown(countDownDate) {
     // jump 2   p
     this.intervalID = setInterval(function(countTo = countDownDate) {
