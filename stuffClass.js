@@ -17,33 +17,25 @@ class Pomodoro {
     // jump 2   p
     this.intervalID = setInterval(function(countTo = countDownDate) {
       // jump 3   a
-      // Get today's date and time
-      // let now = new Date().getTime();
-      console.log("#######################################################");
-      let now = Date.now();
-      console.log(`printing now ${now}`);
-      // Find the distance between now and the count down date
-
-      this.distance = countTo - now;
-      console.log(`${distance} distance  = ${countTo} - ${now}`);
-      // Time calculations for days, hours, minutes and seconds
-      let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      let seconds = Math.floor((distance % (1000 * 60)) / 1000);
       console.log("#######################################################");
 
-      document.querySelector("#clockH1").innerHTML =
-        minutes + "m " + seconds + "s ";
+      countDownDate.subtract(1, "s");
+      console.log(countDownDate);
+      console.log("#######################################################");
+      document.querySelector("#clockH1").innerHTML = countDownDate.format(
+        "mm:ss"
+      );
 
-      // If the count down is over, write some text
-      if (distance < 0) {
-        clearInterval(this.intervalID);
-        document.querySelector("#clockH1").innerHTML = "get rest";
-      }
+      //      // If the count down is over, write some text
+      // if (distance < 0) {
+      //   clearInterval(this.intervalID);
+      //   document.querySelector("#clockH1").innerHTML = "get rest";
+      // }
     }, 1000);
   }
-  get distanceGetter() {
-    return this.distance;
-  }
+  // get distanceGetter() {
+  //   return this.distance;
+  // }
   killCountdown() {
     console.log(`killed countdown (${this.intervalID})`);
     // console.log(`killed at ${this.distance}`);
@@ -52,7 +44,7 @@ class Pomodoro {
   }
 }
 
-let countDownDate = new Date(Date.parse(new Date()) + 25 * 60 * 1000);
+let countDownDate = moment({ hour: 14 }).add(25, "m");
 // main object
 let pom = new Pomodoro(countDownDate);
 pom.countdown(countDownDate);
@@ -63,7 +55,7 @@ console.log(pom.get_time);
 
 document.querySelector("#reset").onclick = () => {
   pom.killCountdown();
-  pom.countdown(new Date(Date.parse(new Date()) + 25 * 60 * 1000));
+  pom.countdown(moment({ hour: 14 }).add(25, "m"));
 };
 
 // stop
@@ -72,10 +64,10 @@ document.querySelector("#stop").onclick = () => {
 };
 // start
 document.querySelector("#start").onclick = () => {
-  console.log("opa");
-  console.log(moment().format("LLLL"));
-  console.log(moment().format("LLLL"));
-  console.log(moment().format("LLLL"));
+  // console.log("opa");
+  // console.log(moment().format("mm ss"));
+  // console.log(moment().format("LLLL"));
+  // console.log(moment().format("LLLL"));
   currentTimeOnScreen = document.querySelector("#clockH1").textContent;
   // regex
   regex = /\d\d?/gi;
@@ -87,16 +79,10 @@ document.querySelector("#start").onclick = () => {
   // let newCountDate = Number(
   //   new Date(Date.parse(new Date()) + timeArray[0] * timeArray[1] * 1000)
   // );
-  // new date object start
+  let newCountDate = moment({ hour: 14 });
+  newCountDate.add(timeArray[0], "m");
+  newCountDate.add(timeArray[1], "s");
 
-  let oldDateObj = new Date();
-  let newCountDate = new Date();
-  newCountDate.setTime(
-    oldDateObj.getTime() + timeArray[0] * timeArray[1] * 1000
-  );
-
-  // fin
-  console.log("from start", newCountDate);
   pom.countdown(newCountDate);
 };
 // document.querySelector("#clockH1");
