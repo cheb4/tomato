@@ -1,4 +1,4 @@
-// TODO kazka sutvarkyti su datom
+// add
 class Pomodoro {
   constructor(_time) {
     this.time = _time;
