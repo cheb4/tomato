@@ -1,9 +1,7 @@
-// adding momentum
-// console.log(moment().format("LTS"));
-
 class Pomodoro {
   constructor(_time) {
     this.time = _time;
+    this.interval = 0;
   }
   get get_time() {
     return this.time;
@@ -11,51 +9,59 @@ class Pomodoro {
   set set_time(new_time) {
     this.time = new_time;
   }
-
-  // jump 1   o
+// get future date and countdown by 1s increments 
   countdown(countDownDate) {
-    // jump 2   p
-    this.intervalID = setInterval(function(countTo = countDownDate) {
-      // jump 3   a
-      console.log("#######################################################");
-
+    let intervalID = setInterval(function(countTo = countDownDate) {
       countDownDate.subtract(1, "s");
-      console.log(countDownDate);
-      console.log("#######################################################");
-      document.querySelector("#clockH1").innerHTML = countDownDate.format(
-        "mm:ss"
-      );
-
-      //      // If the count down is over, write some text
-      // if (distance < 0) {
-      //   clearInterval(this.intervalID);
-      //   document.querySelector("#clockH1").innerHTML = "get rest";
-      // }
+      let time = countDownDate.format("mm:ss");
+      document.title = time;
+      document.querySelector("#clockH1").innerHTML = time;
+      if (countDownDate.format("mm:ss") == "00:00") {
+        document.querySelector("#clockH1").innerHTML = "opa";
+        clearInterval(intervalID);
+      }
     }, 1000);
+    this.interval = intervalID;
   }
-  // get distanceGetter() {
-  //   return this.distance;
-  // }
-  killCountdown() {
-    console.log(`killed countdown (${this.intervalID})`);
-    // console.log(`killed at ${this.distance}`);
 
-    clearInterval(this.intervalID);
+  killCountdown() {
+    console.log(`killed countdown (${this.interval})`);
+    clearInterval(this.interval);
   }
 }
 
+let whatTimeToDisplayByDefault = 25;
 let countDownDate = moment({ hour: 14 }).add(25, "m");
 // main object
 let pom = new Pomodoro(countDownDate);
 pom.countdown(countDownDate);
-// pom.opa();
-console.log(pom.get_time);
+
+// short break
+let shortBreak = (document.querySelector("#shortBreak").onclick = () => {
+  pom.killCountdown();
+  whatTimeToDisplayByDefault = 5;
+  pom.countdown(moment({ hour: 14 }).add(whatTimeToDisplayByDefault, "m"));
+});
+
+// long break
+let longBreak = (document.querySelector("#longBreak").onclick = () => {
+  pom.killCountdown();
+  whatTimeToDisplayByDefault = 15;
+  pom.countdown(moment({ hour: 14 }).add(whatTimeToDisplayByDefault, "m"));
+});
+
+// pomodoro
+let pomodoroBTN = (document.querySelector("#pomodoro").onclick = () => {
+  pom.killCountdown();
+  whatTimeToDisplayByDefault = 25;
+  pom.countdown(moment({ hour: 14 }).add(whatTimeToDisplayByDefault, "m"));
+});
 
 // reset
 
 document.querySelector("#reset").onclick = () => {
   pom.killCountdown();
-  pom.countdown(moment({ hour: 14 }).add(25, "m"));
+  pom.countdown(moment({ hour: 14 }).add(whatTimeToDisplayByDefault, "m"));
 };
 
 // stop
@@ -64,10 +70,6 @@ document.querySelector("#stop").onclick = () => {
 };
 // start
 document.querySelector("#start").onclick = () => {
-  // console.log("opa");
-  // console.log(moment().format("mm ss"));
-  // console.log(moment().format("LLLL"));
-  // console.log(moment().format("LLLL"));
   currentTimeOnScreen = document.querySelector("#clockH1").textContent;
   // regex
   regex = /\d\d?/gi;
@@ -75,17 +77,13 @@ document.querySelector("#start").onclick = () => {
   // regex
   pom.killCountdown();
   console.log(timeArray);
-  // old date object
-  // let newCountDate = Number(
-  //   new Date(Date.parse(new Date()) + timeArray[0] * timeArray[1] * 1000)
-  // );
   let newCountDate = moment({ hour: 14 });
+  // working
   newCountDate.add(timeArray[0], "m");
   newCountDate.add(timeArray[1], "s");
+  // testing
+  // newCountDate.add(0, "m");
+  // newCountDate.add(2, "s");
 
   pom.countdown(newCountDate);
 };
-// document.querySelector("#clockH1");
-// pom.set_time = 9;
-// console.log(pom.get_time);
-// console.log(countDownDate);
