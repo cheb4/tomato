@@ -1,4 +1,6 @@
-// add
+// adding momentum
+// console.log(moment().format("LTS"));
+
 class Pomodoro {
   constructor(_time) {
     this.time = _time;
@@ -71,6 +73,9 @@ document.querySelector("#stop").onclick = () => {
 // start
 document.querySelector("#start").onclick = () => {
   console.log("opa");
+  console.log(moment().format("LLLL"));
+  console.log(moment().format("LLLL"));
+  console.log(moment().format("LLLL"));
   currentTimeOnScreen = document.querySelector("#clockH1").textContent;
   // regex
   regex = /\d\d?/gi;
