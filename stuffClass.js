@@ -78,9 +78,19 @@ document.querySelector("#start").onclick = () => {
   // regex
   pom.killCountdown();
   console.log(timeArray);
-  let newCountDate = new Date(
-    Date.parse(new Date()) + timeArray[0] * timeArray[1] * 1000
+  // old date object
+  // let newCountDate = Number(
+  //   new Date(Date.parse(new Date()) + timeArray[0] * timeArray[1] * 1000)
+  // );
+  // new date object start
+
+  let oldDateObj = new Date();
+  let newCountDate = new Date();
+  newCountDate.setTime(
+    oldDateObj.getTime() + timeArray[0] * timeArray[1] * 1000
   );
+
+  // fin
   console.log("from start", newCountDate);
   pom.countdown(newCountDate);
 };
