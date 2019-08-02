@@ -1,3 +1,10 @@
+// const title = "Simple Title";
+// const options = {
+//   body: "Simple piece of body text.\nSecond line of body text :)"
+// };
+// registration.showNotification(title, options);
+// Notification.requestPermission();
+// new Notification("opa pomodoro");
 class Pomodoro {
   constructor(_time) {
     this.time = _time;
@@ -9,7 +16,10 @@ class Pomodoro {
   set set_time(new_time) {
     this.time = new_time;
   }
-// get future date and countdown by 1s increments 
+  // opa
+
+  // opa end
+  // get future date and countdown by 1s increments
   countdown(countDownDate) {
     let intervalID = setInterval(function(countTo = countDownDate) {
       countDownDate.subtract(1, "s");
@@ -19,6 +29,10 @@ class Pomodoro {
       if (countDownDate.format("mm:ss") == "00:00") {
         document.querySelector("#clockH1").innerHTML = "opa";
         clearInterval(intervalID);
+        // opa
+        Notification.requestPermission();
+        new Notification("opa pomodoro");
+        // opa
       }
     }, 1000);
     this.interval = intervalID;
