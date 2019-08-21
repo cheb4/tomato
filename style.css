@@ -18,7 +18,7 @@ button {
     text-align: center;
     text-decoration: none;
     display: block;
-    font-size: 16px;
+    font-size: 1.2em;
     width: 100%;
     height: 50%;
 }
@@ -92,8 +92,8 @@ body {
     display: grid;
     /* justify-items: center; */
     align-items: center;
-    /* grid-template-columns: minmax();
-    grid-template-rows: auto; */
+    grid-template-columns: auto;
+    grid-template-rows: auto;
     grid-template-areas:
         "pomodoro shortBreak longBreak"
         "clock clock clock"
@@ -127,7 +127,7 @@ h1 {
         text-align: center;
         text-decoration: none;
         display: block;
-        font-size: 16px;
+        font-size: 1.2em;
         width: 100%;
         height: 100%;
     }
@@ -137,6 +137,11 @@ h1 {
         /* align-self: start;
         justify-content: end; */
         height: 100%;
+    }
+
+    #start {
+        align-self: end;
+        justify-self: center;
     }
 
     h1 {
