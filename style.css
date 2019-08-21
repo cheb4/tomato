@@ -10,15 +10,17 @@ html {
     grid-area: top;
 }
 
-#pomodoro {
+button {
     background-color: #4CAF50;
     border: none;
     color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    display: block;
     font-size: 16px;
+    width: 100%;
+    height: 50%;
 }
 
 .pomodoro {
@@ -28,89 +30,53 @@ html {
 
 }
 
-#shortBreak {
-    background-color: rgb(131, 216, 228);
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-}
-
 .shortBreak {
     grid-area: shortBreak;
     /* justify-self: end; */
+    /* align-self: center; */
 }
 
-#longBreak {
-    background-color: rgb(67, 15, 236);
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+#shortBreak {
+    border-left-style: dotted;
+    border-width: 0.1em;
+    border-right-style: dotted;
+
 }
 
 
 .longBreak {
     grid-area: longBreak;
     justify-self: start;
+    /* align-self: center; */
 }
 
 .clock {
     grid-area: clock;
-    /* justify-self: end; */
+    justify-self: center;
+    /* align-self: center; */
 }
 
-
-#start {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-}
 
 .start {
     grid-area: start;
-    /* justify-self: start; */
+    justify-self: end;
 }
 
-#stop {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-}
 
 .stop {
     grid-area: stop;
 }
 
-#reset {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+#stop {
+    border-left-style: dotted;
+    border-width: 0.1em;
+    border-right-style: dotted;
+
 }
 
 .reset {
     grid-area: reset;
+    justify-self: start;
 }
 
 .bottom {
@@ -124,11 +90,11 @@ body {
     padding: 2rem;
     margin: auto; */
     display: grid;
-    justify-items: center;
+    /* justify-items: center; */
     align-items: center;
-    grid-template-columns: auto;
-    grid-template-rows: auto;
-    grid-template-areas: "top top top"
+    /* grid-template-columns: minmax();
+    grid-template-rows: auto; */
+    grid-template-areas:
         "pomodoro shortBreak longBreak"
         "clock clock clock"
         "start stop reset"
@@ -139,4 +105,44 @@ body {
 h1 {
     color: red;
     font-size: 6em;
+}
+
+@media only screen and (max-width: 600px) {
+
+    body {
+        /* align-items: center; */
+        display: grid;
+        grid-template-areas:
+            "pomodoro shortBreak longBreak"
+            "clock clock clock"
+            "start stop reset"
+            "bottom bottom bottom";
+    }
+
+    button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: block;
+        font-size: 16px;
+        width: 100%;
+        height: 100%;
+    }
+
+    #pomodoro {
+        /* color: red; */
+        /* align-self: start;
+        justify-content: end; */
+        height: 100%;
+    }
+
+    h1 {
+        color: green;
+        font-size: 6em;
+    }
+
+
 }
