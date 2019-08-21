@@ -1,4 +1,142 @@
+body,
+html {
+    margin: 0;
+    height: 100%;
+    font-family: 'Arial';
+
+}
+
+.top {
+    grid-area: top;
+}
+
+#pomodoro {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.pomodoro {
+    grid-area: pomodoro;
+    justify-self: end;
+    /* align-self: center; */
+
+}
+
+#shortBreak {
+    background-color: rgb(131, 216, 228);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.shortBreak {
+    grid-area: shortBreak;
+    /* justify-self: end; */
+}
+
+#longBreak {
+    background-color: rgb(67, 15, 236);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+
+.longBreak {
+    grid-area: longBreak;
+    justify-self: start;
+}
+
+.clock {
+    grid-area: clock;
+    /* justify-self: end; */
+}
+
+
+#start {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.start {
+    grid-area: start;
+    /* justify-self: start; */
+}
+
+#stop {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.stop {
+    grid-area: stop;
+}
+
+#reset {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.reset {
+    grid-area: reset;
+}
+
+.bottom {
+    grid-area: bottom;
+}
+
+
+
+body {
+    /* max-width: 38rem;
+    padding: 2rem;
+    margin: auto; */
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas: "top top top"
+        "pomodoro shortBreak longBreak"
+        "clock clock clock"
+        "start stop reset"
+        "bottom bottom bottom";
+}
+
+
 h1 {
     color: red;
-    font-size: 6em
+    font-size: 6em;
 }
