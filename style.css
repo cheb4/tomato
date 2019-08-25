@@ -109,39 +109,15 @@ h1 {
 
 @media only screen and (max-width: 600px) {
 
-    body {
-        /* align-items: center; */
-        display: grid;
-        grid-template-areas:
-            "pomodoro shortBreak longBreak"
-            "clock clock clock"
-            "start stop reset"
-            "bottom bottom bottom";
+
+    .start {
+        grid-area: start;
+        justify-self: stretch;
     }
 
-    button {
-        background-color: #4CAF50;
-        border: none;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: block;
-        font-size: 1.2em;
-        width: 100%;
-        height: 100%;
-    }
-
-    #pomodoro {
-        /* color: red; */
-        /* align-self: start;
-        justify-content: end; */
-        height: 100%;
-    }
-
-    #start {
-        align-self: end;
-        justify-self: center;
+    .reset {
+        grid-area: reset;
+        justify-self: stretch;
     }
 
     h1 {
