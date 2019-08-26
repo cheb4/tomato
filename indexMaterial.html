@@ -11,33 +11,64 @@
     <!-- <script src="countdown.min.js"></script> -->
     <!-- <script src="moment-countdown.min.js"></script> -->
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- <style>
+        body,
+        html {
+            height: 100%;
+            display: grid;
+        }
 
+        .container {
+            margin: auto;
+        }
+    </style> -->
+    <style>
+        html {
+            font-size: 3vw;
+        }
+    </style>
 </head>
 
 <body>
-
-    <!-- <div class="top"></div> -->
-    <div class="pomodoro">
-        <button type="submit" id="pomodoro">new pomodoro</button>
+    <div class="container">
+        <div class="row"></div>
+        <!-- <div class="top"></div> -->
+        <div class="row">
+            <div class="pomodoro">
+                <a type="submit" id="pomodoro" class="waves-effect waves-light btn-large col s4">new pomodoro</a>
+            </div>
+            <div class="shortBreak">
+                <a type="submit" id="shortBreak" class="waves-effect waves-light btn-large col s4">short Break</a>
+            </div>
+            <div class="longBreak">
+                <a type="submit" id="longBreak" class="waves-effect waves-light btn-large col s4">long Break</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="clock col s12 center-align valign center">
+                <h1 id="clockH1" style="text-shadow: 2px 2px 2px #000;" class="">
+                    00:00
+                </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="start">
+                <a type="submit" id="start" class="waves-effect waves-light btn-large col s4">start</a>
+            </div>
+            <div class="stop">
+                <a type="submit" id="stop" class="waves-effect waves-light btn-large col s4">stop</a>
+            </div>
+            <div class="reset">
+                <a type="submit" id="reset" class="waves-effect waves-light btn-large col s4">reset</a>
+            </div>
+        </div>
     </div>
-    <div class="shortBreak">
-        <button type="submit" id="shortBreak">short Break</button>
-    </div>
-    <div class="longBreak">
-        <button type="submit" id="longBreak">long Break</button>
-    </div>
-    <div class="clock">
-        <h1 id="clockH1">00:00</h1>
-    </div>
-    <div class="start"><button type="submit" id="start">start</button></div>
-    <div class="stop"><button type="submit" id="stop">stop</button></div>
-    <div class="reset"><button type="submit" id="reset">reset</button></div>
-    <div class="bottom"></div>
-
 </body>
 <script src="stuffClass.js"></script>
 
