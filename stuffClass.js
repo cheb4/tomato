@@ -18,7 +18,7 @@ class Pomodoro {
       document.title = time;
       document.querySelector("#clockH1").innerHTML = time;
       if (countDownDate.format("mm:ss") == "00:00") {
-        document.querySelector("#clockH1").innerHTML = "opa";
+        document.querySelector("#clockH1").innerHTML = "complete";
         clearInterval(intervalID);
         // opa
         Notification.requestPermission();
