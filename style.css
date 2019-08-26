@@ -1,4 +1,129 @@
+body,
+html {
+    margin: 0;
+    height: 100%;
+    font-family: 'Arial';
+
+}
+
+.top {
+    grid-area: top;
+}
+
+button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 1.2em;
+    width: 100%;
+    height: 50%;
+}
+
+.pomodoro {
+    grid-area: pomodoro;
+    justify-self: end;
+    /* align-self: center; */
+
+}
+
+.shortBreak {
+    grid-area: shortBreak;
+    /* justify-self: end; */
+    /* align-self: center; */
+}
+
+#shortBreak {
+    border-left-style: dotted;
+    border-width: 0.1em;
+    border-right-style: dotted;
+
+}
+
+
+.longBreak {
+    grid-area: longBreak;
+    justify-self: start;
+    /* align-self: center; */
+}
+
+.clock {
+    grid-area: clock;
+    justify-self: center;
+    /* align-self: center; */
+}
+
+
+.start {
+    grid-area: start;
+    justify-self: end;
+}
+
+
+.stop {
+    grid-area: stop;
+}
+
+#stop {
+    border-left-style: dotted;
+    border-width: 0.1em;
+    border-right-style: dotted;
+
+}
+
+.reset {
+    grid-area: reset;
+    justify-self: start;
+}
+
+.bottom {
+    grid-area: bottom;
+}
+
+
+
+body {
+    /* max-width: 38rem;
+    padding: 2rem;
+    margin: auto; */
+    display: grid;
+    /* justify-items: center; */
+    align-items: center;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "pomodoro shortBreak longBreak"
+        "clock clock clock"
+        "start stop reset"
+        "bottom bottom bottom";
+}
+
+
 h1 {
     color: red;
-    font-size: 6em
+    font-size: 6em;
+}
+
+@media only screen and (max-width: 600px) {
+
+
+    .start {
+        grid-area: start;
+        justify-self: stretch;
+    }
+
+    .reset {
+        grid-area: reset;
+        justify-self: stretch;
+    }
+
+    h1 {
+        color: green;
+        font-size: 6em;
+    }
+
+
 }
