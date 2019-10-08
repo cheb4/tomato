@@ -96,12 +96,14 @@ let intervalID = setInterval(function() {
 
   let time =
     today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-  let dateTime = "||| " + time;
+  let dateTime = "||| " + time + " |||";
 
-  let title = document.title + " " + dateTime + " |||";
-
-  document.title = "";
-  document.title = title;
-  console.log(title);
+  let title = document.title + " " + dateTime;
+  if (title.length > 22) {
+    document.title = dateTime;
+  } else {
+    document.title = title;
+    // console.log(title);
+  }
 }, 1000);
 //
