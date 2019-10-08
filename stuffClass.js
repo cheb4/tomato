@@ -99,7 +99,7 @@ let intervalID = setInterval(function() {
   let dateTime = "||| " + time + " |||";
 
   let title = document.title + " " + dateTime;
-  if (title.length > 22) {
+  if (title.length > 27) {
     document.title = dateTime;
   } else {
     document.title = title;
