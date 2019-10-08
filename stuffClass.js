@@ -100,6 +100,7 @@ let intervalID = setInterval(function() {
 
   let title = document.title + " " + dateTime + " |||";
 
+  document.title = "";
   document.title = title;
   console.log(title);
 }, 1000);
