@@ -86,9 +86,20 @@ document.querySelector("#start").onclick = () => {
   // working
   newCountDate.add(timeArray[0], "m");
   newCountDate.add(timeArray[1], "s");
-  // testing
-  // newCountDate.add(0, "m");
-  // newCountDate.add(2, "s");
 
   pom.countdown(newCountDate);
 };
+
+// current local time
+let intervalID = setInterval(function() {
+  let today = new Date();
+
+  let time =
+    today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  let dateTime = "||| " + time;
+
+  let title = document.title + " " + dateTime + " |||";
+
+  document.title = title;
+  console.log(title);
+}, 1000);
