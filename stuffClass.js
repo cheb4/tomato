@@ -91,19 +91,5 @@ document.querySelector("#start").onclick = () => {
 };
 
 // current local time
-let intervalID = setInterval(function() {
-  let today = new Date();
 
-  let time =
-    today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-  let dateTime = "||| " + time + " |||";
-
-  let title = document.title + " " + dateTime;
-  if (title.length > 32) {
-    document.title = dateTime;
-  } else {
-    document.title = title;
-    // console.log(title);
-  }
-}, 1000);
 //
